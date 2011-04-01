@@ -23,6 +23,7 @@ DATABASES = {
 BASE_DIR_TEMP_IMAGE_STORAGE = '/tmp/'
 
 AWS_ACCESS_KEY='Your key here'
+
 AWS_SECRET_KEY='Your secret key here'
 AWS_BUCKET='Your bucket here'
 
@@ -168,4 +169,8 @@ LOGGING = {
 }
 
 
+try:
+    from settings_local import *
+except:
+    pass
 
