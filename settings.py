@@ -30,9 +30,18 @@ AWS_BUCKET='Your bucket here'
 PREPEND_PATH = '/cloudscope'
 
 CACHES = {
+    
+    # Default cache is used to hold the output transformed images
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/cloudscope/workspace',
+    },
+
+    # the original is used to hold the source images pulled from s3
+    # I would expect this tends to get very big
+    'original': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/cloudscope/original',
     },
         
     # Used to track what thing should be purged from the CDN
